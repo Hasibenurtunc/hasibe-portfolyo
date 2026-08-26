@@ -44,6 +44,10 @@ const HOTSPOTS = [
 export default function DeskScene({ activePopover, onOpenPopover, onClosePopover, mobileOnly = false }) {
   const [showOnboarding, setShowOnboarding] = useState(!mobileOnly);
 
+  if (mobileOnly && !activePopover) {
+    return null;
+  }
+
   return (
     <div className="desk-scene-wrapper">
       {!mobileOnly && (
